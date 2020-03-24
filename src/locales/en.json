@@ -3,6 +3,7 @@
     "message": "hello i18n !!"
   },
   "about": {
-    "message": "about i18n !!"
+    "message": "about i18n !!",
+    "wolves": "no wolf | one wolf | a pack of {n} wolves"
   }
 }

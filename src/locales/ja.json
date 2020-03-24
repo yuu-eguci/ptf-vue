@@ -3,6 +3,7 @@
     "message": "やあ i18n !!"
   },
   "about": {
-    "message": "i18n について !!"
+    "message": "i18n について !!",
+    "wolves": "狼はいない | 1頭の狼 | {n}匹もの狼"
   }
 }

@@ -3,6 +3,7 @@
     "message": "bună i18n !!"
   },
   "about": {
-    "message": "despre i18n !!"
+    "message": "despre i18n !!",
+    "wolves": "fară lup | un lup | {n} lupi"
   }
 }
