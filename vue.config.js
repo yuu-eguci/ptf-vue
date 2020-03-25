@@ -7,5 +7,7 @@ module.exports = {
       enableInSFC: false
     }
   },
-  publicPath: './'
+  // サブドメイン時のためのパラメータです。
+  // ./ にすると assets は解決する。だけど spa が解決しなかった。
+  publicPath: '/ptf-vue/'
 }
