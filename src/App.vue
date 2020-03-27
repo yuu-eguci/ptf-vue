@@ -1,14 +1,5 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <!-- $i18n.locale を変更する select です。 -->
-      <select v-model="$i18n.locale">
-        <!-- :key は 2.2.0 以降必須。 -->
-        <option v-for="lang in ['en', 'ja', 'ro']" :key="lang.id" :value="lang">{{ lang }}</option>
-      </select>
-    </div>
     <router-view/>
   </div>
 </template>
@@ -26,18 +17,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
