@@ -6,7 +6,7 @@
       <!-- $i18n.locale を変更する select です。 -->
       <select v-model="$i18n.locale">
         <!-- :key は 2.2.0 以降必須。 -->
-        <option v-for="lang in langs" :key="lang.id" :value="lang">{{ lang }}</option>
+        <option v-for="lang in ['en', 'ja', 'ro']" :key="lang.id" :value="lang">{{ lang }}</option>
       </select>
     </div>
     <router-view/>
@@ -16,9 +16,6 @@
 <script>
 export default {
   name: 'App',
-  data () {
-    return { langs: ['en', 'ja', 'ro'] }
-  }
 }
 </script>
 
