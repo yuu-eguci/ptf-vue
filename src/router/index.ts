@@ -15,7 +15,7 @@ const router = new VueRouter({
       component: App,
       children: [
         {
-          path: '',
+          path: 'home',
           name: 'Home',
           component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
         },
@@ -34,6 +34,11 @@ const router = new VueRouter({
           // Admin ページを表示するためには認証が必要であるとします。
           meta: { requiredAuth: true },
         },
+        {
+          path: '',
+          name: 'Ptf',
+          component: () => import(/* webpackChunkName: "ptf" */ '../views/Portfolio.vue'),
+        }
       ]
     },
     // 想定外の URL は /en へリダイレクトします。
