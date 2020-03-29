@@ -58,10 +58,10 @@ router.beforeEach((to, from, next) => {
     // 今回はてきとうに、 GET クエリに auth=ok があったときとします。
     if (to.query.auth === 'ok') {
       // ok ならそのまま流して、 next() を実行します。
-      console.info('認証 ok')
+      console.info('認証 ok')  // eslint-disable-line no-console
     } else {
       // ng ならトップへ。
-      console.info('認証 ng')
+      console.info('認証 ng')  // eslint-disable-line no-console
       next({
         name: 'Home', query: { redirect: to.fullPath }
       })
