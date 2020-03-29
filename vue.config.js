@@ -9,5 +9,11 @@ module.exports = {
   },
   // サブドメイン時のためのパラメータです。
   // ./ にすると assets は解決する。だけど spa が解決しなかった。
-  publicPath: '/ptf-vue/'
+  publicPath: '/ptf-vue/',
+  pages: {
+    index: {
+      entry: 'src/main.ts',
+      title: 'Yuu\'s portfolio',
+    }
+  }
 }
