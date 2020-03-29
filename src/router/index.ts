@@ -10,19 +10,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     {
-      // :locale 動的セグメントです。
+      // :locale 動的セグメントです。これをもとに beforeEach 内で i18n.locale をセットします。
       path: '/:locale',
       component: App,
-      beforeEnter(to, from, next) {
-        // URL の locale を i18n.locale にセットします。
-        if (['en', 'ja', 'ro'].includes(to.params.locale)) {
-          // OK.
-        } else {
-          return next('en')
-        }
-        i18n.locale = to.params.locale
-        return next()
-      },
       children: [
         {
           path: '',
@@ -45,6 +35,19 @@ const router = new VueRouter({
       redirect: '/en',
     },
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  // URL の locale を i18n.locale にセットします。
+  if (['en', 'ja', 'ro'].includes(to.params.locale)) {
+    // OK.
+  } else {
+    return next('en')
+  }
+  i18n.locale = to.params.locale
+
+  // beforeEnter では next() を呼ばないといけない。
+  next()
 })
 
 export default router
