@@ -26,7 +26,14 @@ const router = new VueRouter({
           // this generates a separate chunk (about.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-        }
+        },
+        {
+          path: 'admin',
+          name: 'Admin',
+          component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
+          // Admin ページを表示するためには認証が必要であるとします。
+          meta: { requiredAuth: true },
+        },
       ]
     },
     // 想定外の URL は /en へリダイレクトします。
@@ -45,6 +52,22 @@ router.beforeEach((to, from, next) => {
     return next('en')
   }
   i18n.locale = to.params.locale
+
+  // meta: { requiredAuth: true } を指定した route のときこれが true になります。
+  if (to.matched.some(record => record.meta.requiredAuth)) {
+    // 今回はてきとうに、 GET クエリに auth=ok があったときとします。
+    if (to.query.auth === 'ok') {
+      // ok ならそのまま流して、 next() を実行します。
+      console.info('認証 ok')
+    } else {
+      // ng ならトップへ。
+      console.info('認証 ng')
+      next({
+        name: 'Home', query: { redirect: to.fullPath }
+      })
+      return
+    }
+  }
 
   // beforeEnter では next() を呼ばないといけない。
   next()
