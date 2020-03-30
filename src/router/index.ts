@@ -42,6 +42,11 @@ const router = new VueRouter({
           name: 'SignInUserOnly',
           component: () => import(/* webpackChunkName: "signinuseronly" */ '../views/SignInUserOnly.vue'),
         },
+        {
+          path: 'signout',
+          name: 'SignOut',
+          component: () => import(/* webpackChunkName: "signout" */ '../views/SignOut.vue'),
+        },
       ]
     },
     // 想定外の URL は /en へリダイレクトします。
