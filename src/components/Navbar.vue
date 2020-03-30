@@ -4,6 +4,7 @@
     <router-link :to="'/'+this.$i18n.locale">Home</router-link> |
     <router-link :to="'/'+this.$i18n.locale+'/about'">About</router-link> |
     <router-link :to="'/'+this.$i18n.locale+'/signin'">SignIn</router-link> |
+    <router-link :to="'/'+this.$i18n.locale+'/signinuseronly'">SignInUserOnly</router-link> |
     <!-- $i18n.locale を変更する select です。 -->
     <select v-model="$i18n.locale">
       <!-- :key は 2.2.0 以降必須。 -->
