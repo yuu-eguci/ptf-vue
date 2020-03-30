@@ -1,7 +1,8 @@
 <template>
-  <div class="admin">
+  <div class="signin">
     <Navbar/>
-    <h1>This is admin page.</h1>
+    <h1>Sign In page</h1>
+    <button>Sign In</button>
   </div>
 </template>
 
@@ -10,7 +11,7 @@
 import Navbar from '@/components/Navbar.vue'
 
 export default {
-  name: 'Admin',
+  name: 'SignIn',
   components: {
     Navbar,
   }

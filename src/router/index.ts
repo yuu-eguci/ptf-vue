@@ -15,7 +15,7 @@ const router = new VueRouter({
       component: App,
       children: [
         {
-          path: 'home',
+          path: '',
           name: 'Home',
           component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
         },
@@ -28,17 +28,15 @@ const router = new VueRouter({
           component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
         },
         {
-          path: 'admin',
-          name: 'Admin',
-          component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
-          // Admin ページを表示するためには認証が必要であるとします。
-          meta: { requiredAuth: true },
-        },
-        {
-          path: '',
+          path: 'ptf',
           name: 'Ptf',
           component: () => import(/* webpackChunkName: "ptf" */ '../views/Portfolio.vue'),
-        }
+        },
+        {
+          path: 'signin',
+          name: 'SignIn',
+          component: () => import(/* webpackChunkName: "signin" */ '../views/SignIn.vue'),
+        },
       ]
     },
     // 想定外の URL は /en へリダイレクトします。
@@ -60,18 +58,7 @@ router.beforeEach((to, from, next) => {
 
   // meta: { requiredAuth: true } を指定した route のときこれが true になります。
   if (to.matched.some(record => record.meta.requiredAuth)) {
-    // 今回はてきとうに、 GET クエリに auth=ok があったときとします。
-    if (to.query.auth === 'ok') {
-      // ok ならそのまま流して、 next() を実行します。
-      console.info('認証 ok')  // eslint-disable-line no-console
-    } else {
-      // ng ならトップへ。
-      console.info('認証 ng')  // eslint-disable-line no-console
-      next({
-        name: 'Home', query: { redirect: to.fullPath }
-      })
-      return
-    }
+    // TODO: Implement
   }
 
   // beforeEnter では next() を呼ばないといけない。
