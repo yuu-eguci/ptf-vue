@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["ptf"],{c9e5:function(t,n,e){"use strict";e.r(n);var o=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("div",{staticClass:"portfolio"})},l=[],s={name:"Portfolio",components:{}},c=s,a=e("2877"),i=Object(a["a"])(c,o,l,!1,null,null,null);n["default"]=i.exports}}]);
+//# sourceMappingURL=ptf.a45ecce4.js.map
