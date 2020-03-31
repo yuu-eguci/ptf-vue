@@ -1,5 +1,9 @@
 # ptf-vue
 
+## Description
+
+As I want to get used to vue-cli, this project includes some components besides portfolio such as i18n and sign in sample using vuex.
+
 ## Project setup
 ```
 yarn install

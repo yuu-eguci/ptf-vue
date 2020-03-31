@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from '@/App.vue'
 import i18n from '@/i18n'
+import Store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -17,7 +18,7 @@ const router = new VueRouter({
         {
           path: '',
           name: 'Home',
-          component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+          component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
         },
         {
           path: 'about',
@@ -25,7 +26,7 @@ const router = new VueRouter({
           // route level code-splitting
           // this generates a separate chunk (about.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+          component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
         },
         {
           path: 'ptf',
@@ -41,11 +42,13 @@ const router = new VueRouter({
           path: 'signinuseronly',
           name: 'SignInUserOnly',
           component: () => import(/* webpackChunkName: "signinuseronly" */ '../views/SignInUserOnly.vue'),
+          meta: { requiresAuth: true },
         },
         {
           path: 'signout',
           name: 'SignOut',
           component: () => import(/* webpackChunkName: "signout" */ '../views/SignOut.vue'),
+          meta: { requiresAuth: true },
         },
       ]
     },
@@ -66,9 +69,14 @@ router.beforeEach((to, from, next) => {
   }
   i18n.locale = to.params.locale
 
-  // meta: { requiredAuth: true } を指定した route のときこれが true になります。
-  if (to.matched.some(record => record.meta.requiredAuth)) {
-    // TODO: Implement
+  // サインインのサンプル。
+  // Vuex の store に authToken がなんか入っているときサインイン中とする。
+  // meta: { requiresAuth: true } を指定した route record のときこれが true になります。
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  // token: トークンがあればログイン済みとしてみます。
+  const authToken = Store.getters['auth/authToken']
+  if (requiresAuth && !authToken) {
+    return next({ name: 'SignIn' })
   }
 
   // beforeEnter では next() を呼ばないといけない。
