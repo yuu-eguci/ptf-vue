@@ -1,3 +1,5 @@
+![github pages](https://github.com/yuu-eguci/ptf-vue/workflows/github%20pages/badge.svg)
+
 # ptf-vue
 
 ## Description
