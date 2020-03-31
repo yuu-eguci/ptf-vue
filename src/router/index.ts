@@ -52,10 +52,10 @@ const router = new VueRouter({
         },
       ]
     },
-    // 想定外の URL は /en へリダイレクトします。
+    // 想定外の URL は Vuex store にセットされている locale へリダイレクトします。
     {
       path: '*',
-      redirect: '/en',
+      redirect: '/' + Store.getters['i18n/locale'],
     },
   ],
 })
@@ -65,9 +65,12 @@ router.beforeEach((to, from, next) => {
   if (['en', 'ja', 'ro'].includes(to.params.locale)) {
     // OK.
   } else {
-    return next('en')
+    return next(Store.getters['i18n/locale'])
   }
+  // URL で指定された locale を vue-i18n へセット。
   i18n.locale = to.params.locale
+  // 同じく Vuex store へセット。
+  Store.commit('i18n/set', to.params.locale)
 
   // サインインのサンプル。
   // Vuex の store に authToken がなんか入っているときサインイン中とする。
