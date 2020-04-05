@@ -1,5 +1,5 @@
 <template>
-  <div class="signinuseronly">
+  <div class="default">
     <Navbar/>
     <h1>Sign In User Only page</h1>
   </div>

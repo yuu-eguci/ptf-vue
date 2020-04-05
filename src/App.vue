@@ -11,7 +11,8 @@ export default {
 </script>
 
 <style>
-#app {
+/* Ptf 以外のデフォルト vue ページに適用させます。 */
+.default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

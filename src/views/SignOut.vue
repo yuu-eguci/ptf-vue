@@ -1,5 +1,5 @@
 <template>
-  <div class="signout">
+  <div class="default">
     <Navbar/>
     <h1>Sign Out page</h1>
     <button @click="removeToken()">Sign Out</button>

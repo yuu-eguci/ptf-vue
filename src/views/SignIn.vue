@@ -1,5 +1,5 @@
 <template>
-  <div class="signin">
+  <div class="default">
     <Navbar/>
     <h1>Sign In page</h1>
     <button @click="setToken()">Sign In</button>

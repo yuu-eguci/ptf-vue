@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="default">
     <Navbar/>
     <h1>{{$t('about.message')}}</h1>
     <h2>{{$tc('about.wolves', 0)}}</h2>

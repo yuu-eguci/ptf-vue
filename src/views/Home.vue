@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="default">
     <Navbar/>
     <img alt="Vue logo" src="@/assets/logo.png">
     <HelloWorld :msg="$t('home.message')"/>
