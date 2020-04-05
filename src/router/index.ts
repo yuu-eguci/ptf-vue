@@ -16,7 +16,7 @@ const router = new VueRouter({
       component: App,
       children: [
         {
-          path: '',
+          path: 'home',
           name: 'Home',
           component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
         },
@@ -29,9 +29,9 @@ const router = new VueRouter({
           component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
         },
         {
-          path: 'ptf',
+          path: '',
           name: 'Ptf',
-          component: () => import(/* webpackChunkName: "ptf" */ '../views/Portfolio.vue'),
+          component: () => import(/* webpackChunkName: "ptf" */ '../views/Ptf.vue'),
         },
         {
           path: 'signin',

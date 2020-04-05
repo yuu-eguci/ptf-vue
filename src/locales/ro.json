@@ -5,5 +5,8 @@
   "about": {
     "message": "despre i18n !!",
     "wolves": "fară lup | un lup | {n} lupi"
+  },
+  "ptf": {
+    "jumbotron-description": "(Nu încă să fie trandus) My name is Yuu Eguci. Awesome guy from Japan. Makes things with joy and creates the interaction with members in familiar teams. Examples of such activities will be described in this portfolio."
   }
 }
